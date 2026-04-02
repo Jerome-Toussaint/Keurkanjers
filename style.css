@@ -1,0 +1,285 @@
+
+:root{
+  --bg:#ededed;
+  --ink:#121212;
+  --line:#121212;
+  --green-dark:#53774a;
+  --blue:#7db7f4;
+  --yellow:#f1dd59;
+  --green:#8edb75;
+  --purple:#8d73dd;
+  --pink:#d68acb;
+  --red:#f06c6c;
+  --cyan:#7bc8db;
+  --card-shadow:0 8px 18px rgba(0,0,0,.18);
+  --max-width:1400px;
+  --panel-gap:12px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:Inter,Arial,sans-serif;color:var(--ink);background:var(--bg)}
+img{display:block;max-width:100%}
+a{text-decoration:none;color:inherit}
+.site-header{position:sticky;top:0;z-index:20;background:#fff8;backdrop-filter:blur(8px);border-bottom:3px solid var(--line)}
+.nav{max-width:var(--max-width);margin:0 auto;padding:12px 18px;display:flex;align-items:center;justify-content:space-between;gap:18px}
+.brand{font-family:"Londrina Solid",cursive;font-size:2rem;line-height:1;text-transform:uppercase}
+.nav-toggle{display:none;border:3px solid var(--line);background:#fff;padding:10px 12px;font-weight:700;cursor:pointer}
+.nav-links{display:flex;gap:12px;flex-wrap:wrap}
+.nav-links a{border:3px solid var(--line);background:#fff;padding:10px 14px;font-family:"Londrina Solid",cursive;font-size:1.25rem;text-transform:uppercase}
+.nav-links a:hover,.nav-links a:focus-visible{background:#f7e98a}
+.nav-links a.active{background:var(--yellow)}
+.hero{position:relative;display:block;overflow:hidden;border-bottom:5px solid var(--line);background:radial-gradient(circle at 50% -10%, rgba(255,255,255,.08), transparent 40%),repeating-linear-gradient(100deg, rgba(0,0,0,0) 0 42px, rgba(0,0,0,.16) 42px 45px),#7BBA8E}
+.hero-inner{max-width:var(--max-width);margin:0 auto;padding:38px 20px 0}
+.hero-characters{width:min(1694px, calc(100% + 220px));max-width:none;margin-left:-120px;margin-right:auto;object-fit:cover;object-position:center bottom}
+.hero-page{min-height:420px;display:grid;align-items:end}
+.hero-copy{max-width:var(--max-width);margin:0 auto;padding:56px 20px 40px;display:grid;grid-template-columns:1.2fr .9fr;gap:20px;align-items:end}
+.hero-copy h1{margin:0 0 12px;font-family:"Londrina Solid",cursive;font-size:clamp(3rem, 7vw, 6rem);line-height:.92;text-transform:uppercase}
+.hero-copy p{margin:0;font-size:clamp(1.05rem, 2vw, 1.35rem);line-height:1.5;max-width:42rem;color:#f7f7f7}
+.hero-copy .badge{display:inline-block;margin-bottom:16px;border:3px solid var(--line);background:var(--yellow);color:#111;padding:8px 12px;font-family:"Londrina Solid",cursive;font-size:1.1rem;text-transform:uppercase}
+.hero-art{justify-self:end;align-self:end;max-height:320px;filter:drop-shadow(0 10px 16px rgba(0,0,0,.3))}
+.section{max-width:var(--max-width);margin:0 auto;padding:48px 20px}
+.grid{display:flex;flex-wrap:wrap;gap:var(--panel-gap);align-items:flex-start}
+.panel{position:relative;isolation:isolate;border:4px solid var(--line);overflow:hidden;min-height:220px;background:radial-gradient(circle at 50% -40%, rgba(255,255,255,.22), transparent 30%),repeating-linear-gradient(105deg, rgba(0,0,0,0) 0 26px, rgba(0,0,0,.08) 26px 29px);box-shadow:var(--card-shadow);transition:transform .24s cubic-bezier(.2,.9,.2,1),box-shadow .24s ease,filter .24s ease}
+.panel::before{content:"";position:absolute;inset:-18%;background:linear-gradient(118deg, rgba(255,255,255,0) 34%, rgba(255,255,255,.34) 48%, rgba(255,255,255,0) 60%);opacity:0;transform:translateX(-55%) rotate(9deg);transition:transform .45s ease,opacity .25s ease;pointer-events:none;z-index:1}
+.panel::after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 16% 16%, rgba(255,255,255,.24), transparent 18%),radial-gradient(circle at 84% 20%, rgba(255,255,255,.16), transparent 16%);opacity:.7;pointer-events:none;z-index:0}
+.panel:hover,.panel:focus-visible,.panel:focus-within{transform:translateY(-10px) scale(1.015) rotate(-.4deg);box-shadow:0 14px 0 rgba(18,18,18,.95),0 26px 28px rgba(0,0,0,.22);filter:saturate(1.08)}
+.panel:hover::before,.panel:focus-visible::before,.panel:focus-within::before{opacity:1;transform:translateX(50%) rotate(9deg)}
+.panel .inner{position:relative;z-index:2;padding:18px 16px 16px;height:100%}
+.panel h2{margin:0 0 12px;font-family:"Londrina Solid",cursive;font-size:clamp(2rem, 3.2vw, 4rem);line-height:.9;text-transform:uppercase;transition:transform .22s ease,text-shadow .22s ease}
+.panel p{margin:0;font-family:"Londrina Solid",cursive;font-size:clamp(1.05rem, 1.7vw, 2rem);line-height:1.08;max-width:30ch;text-transform:uppercase;color:rgba(0,0,0,.8);transition:transform .22s ease}
+.panel .art{position:absolute;right:-12px;bottom:-8px;width:38%;max-height:90%;z-index:1;filter:drop-shadow(0 8px 14px rgba(0,0,0,.22));transition:transform .24s cubic-bezier(.2,.9,.2,1),filter .24s ease}
+.panel:hover h2,.panel:focus-visible h2,.panel:focus-within h2{transform:translateY(-2px) rotate(-1deg);text-shadow:4px 4px 0 rgba(255,255,255,.28)}
+.panel:hover p,.panel:focus-visible p,.panel:focus-within p{transform:translateY(-2px)}
+.panel:hover .art,.panel:focus-visible .art,.panel:focus-within .art{transform:translateY(-8px) scale(1.06) rotate(-2deg);filter:drop-shadow(0 16px 18px rgba(0,0,0,.24))}
+.panel:focus-visible{outline:4px solid #fff;outline-offset:4px}
+.blue{background-color:#7BAFEA}
+.yellow{background-color:#FFE96D}
+.green{background-color:var(--green)}
+.purple{background-color:var(--purple)}
+.pink{background-color:#D98DCF}
+.red{background-color:var(--red)}
+.cyan{background-color:var(--cyan)}
+.over-ons{flex:0 0 calc((100% - var(--panel-gap)) * 5 / 12)}
+.keurmerken{flex:0 0 calc((100% - var(--panel-gap)) * 7 / 12)}
+.spelregels{flex:0 0 calc((100% - var(--panel-gap)) * 7 / 12)}
+.kwartet{flex:0 0 calc((100% - var(--panel-gap)) * 5 / 12)}
+.placeholder-red{flex:0 0 calc((100% - (var(--panel-gap) * 2)) * 3 / 12);align-self:start;min-height:520px;aspect-ratio:410 / 574}
+.placeholder-cyan{flex:0 0 calc((100% - (var(--panel-gap) * 2)) * 4 / 12);align-self:start;min-height:520px;aspect-ratio:406 / 574}
+.kanjers{flex:0 0 calc((100% - (var(--panel-gap) * 2)) * 5 / 12);align-self:start;min-height:520px;aspect-ratio:590 / 791}
+.over-ons .art{width:60%;right:-26px;bottom:-6px;max-height:96%}
+.keurmerken .art{width:40%;right:6px;bottom:-4px;max-height:96%}
+.spelregels .art{width:54%;right:-30px;bottom:-4px;max-height:96%}
+.kwartet .art{width:42%}
+.frog-card,.help-card{padding:0;border:none;box-shadow:none;background:transparent;overflow:hidden;filter:none;transition:transform .24s cubic-bezier(.2,.9,.2,1),box-shadow .24s ease,filter .24s ease}
+.frog-card::before,.frog-card::after,.help-card::before,.help-card::after{display:none}
+.frog-card:hover,.frog-card:focus-visible,.frog-card:focus-within,.help-card:hover,.help-card:focus-visible,.help-card:focus-within{transform:translateY(-10px) scale(1.015) rotate(-.4deg);box-shadow:0 14px 24px rgba(0,0,0,.18);filter:saturate(1.08)}
+.tile-image{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top;z-index:2}
+.frog-card .tile-image{object-fit:contain;object-position:center top}
+.help-card .tile-image{object-position:center top}
+.help-copy{position:absolute;top:0;left:0;z-index:4;width:58%;padding:18px 16px 18px}
+.help-copy h2{margin:0 0 18px;font-family:"Londrina Solid",cursive;font-size:clamp(3.2rem, 4vw, 5rem);line-height:.88;text-transform:uppercase;text-shadow:3px 3px 0 rgba(255,255,255,.22)}
+.help-copy p{margin:0;max-width:9ch;font-family:"Londrina Solid",cursive;font-size:clamp(1.55rem, 2vw, 2.55rem);line-height:1.02;text-transform:uppercase;color:rgba(0,0,0,.82);text-shadow:2px 2px 0 rgba(255,255,255,.18)}
+.kanjers{border:none;box-shadow:none;background:transparent;overflow:visible;filter:none;transition:transform .24s cubic-bezier(.2,.9,.2,1),box-shadow .24s ease,filter .24s ease}
+.kanjers::before,.kanjers::after{display:none}
+.kanjers:hover,.kanjers:focus-visible,.kanjers:focus-within{transform:translateY(-10px) scale(1.015) rotate(-.4deg);box-shadow:0 14px 24px rgba(0,0,0,.18);filter:saturate(1.08)}
+.kanjers-copy{position:absolute;top:0;left:0;z-index:4;width:68%;padding:18px 18px 8px}
+.kanjers-copy h2{margin:0 0 12px;font-size:clamp(3rem, 4vw, 4.8rem);line-height:.86;text-shadow:3px 3px 0 rgba(255,255,255,.28)}
+.kanjers-copy p{margin:0;max-width:18ch;font-size:clamp(1.35rem, 1.7vw, 2rem);line-height:1.02;text-shadow:2px 2px 0 rgba(255,255,255,.24)}
+.kanjers-tile{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top;transform:translateY(-18px);z-index:2}
+.continued-badge{position:absolute;left:50%;bottom:-28px;transform:translateX(-50%);width:min(78%, 420px);z-index:5;transition:transform .24s cubic-bezier(.2,.9,.2,1)}
+.kanjers:hover .continued-badge,.kanjers:focus-visible .continued-badge,.kanjers:focus-within .continued-badge{transform:translateX(-50%)}
+.content-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:28px;align-items:start}
+.card{border:4px solid var(--line);background:#fff;padding:24px;box-shadow:var(--card-shadow)}
+.card h2{margin:0 0 14px;font-family:"Londrina Solid",cursive;font-size:clamp(2rem, 4vw, 3.5rem);line-height:.95;text-transform:uppercase}
+.card p,.card li{font-size:1.05rem;line-height:1.7}
+.card ul{margin:0;padding-left:18px}
+.fact-list{display:grid;gap:14px}
+.fact{border:3px solid var(--line);padding:16px;background:#fff}
+.fact h3{margin:0 0 8px;font-family:"Londrina Solid",cursive;font-size:1.6rem;text-transform:uppercase}
+.character-grid{display:grid;grid-template-columns:repeat(2, 1fr);gap:18px}
+.character{border:4px solid var(--line);background:#fff;overflow:hidden;box-shadow:var(--card-shadow)}
+.character .top{padding:16px;min-height:180px;display:flex;align-items:flex-end;justify-content:flex-end;position:relative;overflow:hidden}
+.character .top img{max-height:170px;width:auto}
+.character .body{padding:16px}
+.character h3{margin:0 0 8px;font-family:"Londrina Solid",cursive;font-size:2rem;text-transform:uppercase;line-height:.95}
+.character p{margin:0;line-height:1.6}
+.about-page{position:relative;overflow:hidden;background:#5a9be5}
+.about-page::before{content:"";position:absolute;inset:0;background:url("https://www.figma.com/api/mcp/asset/2e387691-58ff-4814-8868-9f731702cccd") center top/cover no-repeat;opacity:.2;pointer-events:none}
+.about-inner{position:relative;max-width:1440px;margin:0 auto;padding:28px 24px 56px}
+.about-page-tag{position:absolute;right:17px;top:17px;z-index:2;min-width:314px;height:93px;border:5px solid var(--line);background:#006dd2;box-shadow:0 -5px 4px rgba(0,0,0,.25) inset,0 4px 0 rgba(0,0,0,.08);display:flex;align-items:center;justify-content:center;font-family:"Londrina Solid",cursive;font-size:2.8rem;line-height:1;text-transform:uppercase;color:#fff}
+.about-portraits{display:flex;justify-content:space-between;gap:28px;padding:160px 127px 0}
+.about-person{position:relative;width:321px;display:flex;flex-direction:column;align-items:center}
+.about-person img{width:321px;height:321px;border:5px solid var(--line);border-radius:50%;object-fit:cover;background:#fff}
+.about-person-name{margin-top:-48px;width:245px;height:93px;border:5px solid var(--line);background:#006dd2;box-shadow:0 -5px 4px rgba(0,0,0,.25) inset;display:flex;align-items:center;justify-content:center;font-family:"Londrina Solid",cursive;font-size:3rem;line-height:1;text-transform:uppercase;color:#fff;position:relative;z-index:1}
+.about-panel{position:relative;margin:113px auto 0;padding:176px 72px 64px;border:5px solid var(--line);background:#8571d0;color:#fff;text-align:center}
+.about-panel-goal{margin-top:22px;background:#6849de;padding-top:194px;padding-bottom:86px}
+.about-panel-how{margin-top:22px;padding-top:194px;padding-bottom:92px}
+.about-panel-title{position:absolute;left:50%;top:51px;transform:translateX(-50%);min-height:113px;padding:16px 34px;border:5px solid var(--line);background:#006dd2;box-shadow:0 -5px 4px rgba(0,0,0,.25) inset;display:flex;align-items:center;justify-content:center;font-family:"Londrina Solid",cursive;font-size:clamp(3rem, 5vw, 6rem);line-height:.95;text-transform:uppercase;color:#fff;white-space:nowrap}
+.about-panel-intro .about-panel-title{min-width:392px}
+.about-panel-goal .about-panel-title{min-width:1284px;max-width:100%}
+.about-panel-how .about-panel-title{min-width:1079px;max-width:100%}
+.about-panel p,.about-panel-body{font-family:"Londrina Solid",cursive;font-weight:300;font-size:clamp(1.55rem, 2.3vw, 2.5rem);line-height:1.2;color:#fff}
+.about-panel-intro p{max-width:1042px;margin:0 auto}
+.about-panel-goal p{max-width:1035px;margin:0 auto 24px}
+.about-panel-goal p:last-child{margin-bottom:0}
+.about-photo-band{margin-top:24px;border:5px solid var(--line);background:#fff}
+.about-photo-band img{display:block;width:100%;height:auto}
+.about-panel-body{max-width:1079px;margin:0 auto}
+.about-panel-lead{margin:0 0 8px}
+.about-panel-body ul{margin:0 auto 28px;padding-left:36px;max-width:1040px;text-align:left}
+.about-panel-body li{margin-bottom:14px}
+.about-panel-body li:last-child{margin-bottom:0}
+.labels-page{position:relative;overflow:hidden;background:#ffe449}
+.labels-page::before{content:"";position:absolute;inset:0;background:url("https://www.figma.com/api/mcp/asset/5a1c50a1-fc62-4f0d-b926-8d3646724237") center top/cover no-repeat;opacity:.2;pointer-events:none}
+.labels-inner{position:relative;max-width:1440px;margin:0 auto;padding:64px 27px 76px}
+.labels-logo-row{display:flex;align-items:center;justify-content:center;gap:42px;margin:34px 0 165px}
+.labels-arrow{width:84px;height:65px;flex:none}
+.labels-arrow-right{transform:scaleX(-1)}
+.labels-logo{width:415px;height:auto;display:block}
+.labels-panel{position:relative;border:5px solid var(--line);background:#004b44;color:#fff;overflow:hidden}
+.labels-panel::before{content:"";position:absolute;inset:0;background:url("https://www.figma.com/api/mcp/asset/c5852bf6-6351-435f-808e-2c5835ccb5cc") center/cover no-repeat;opacity:.16;pointer-events:none}
+.labels-panel > *{position:relative;z-index:1}
+.labels-panel-title{position:absolute;left:50%;top:57px;transform:translateX(-50%);min-height:113px;padding:16px 32px;border:5px solid var(--line);background:#528945;box-shadow:0 -5px 4px rgba(0,0,0,.25) inset;display:flex;align-items:center;justify-content:center;font-family:"Londrina Solid",cursive;font-size:clamp(3rem, 5vw, 6rem);line-height:.9;text-transform:uppercase;color:#fff;white-space:nowrap}
+.labels-panel-intro{padding:210px 48px 48px;min-height:564px;text-align:center}
+.labels-panel-intro .labels-panel-title{min-width:516px}
+.labels-panel-intro p{max-width:1329px;margin:0 auto;font-family:"Londrina Solid",cursive;font-weight:300;font-size:clamp(1.7rem, 2.4vw, 2.5rem);line-height:1.2}
+.labels-products-layout{display:grid;grid-template-columns:761px 599px;gap:25px;margin-top:25px}
+.labels-panel-products{padding:200px 42px 40px;min-height:916px}
+.labels-panel-products .labels-panel-title{min-width:469px}
+.labels-products-copy{font-family:"Londrina Solid",cursive;font-weight:300;font-size:clamp(1.5rem, 2vw, 2.5rem);line-height:1.2;color:#fff}
+.labels-products-copy p{margin:0 0 28px}
+.labels-products-copy ol{margin:0;padding-left:40px}
+.labels-products-copy li{margin-bottom:12px}
+.labels-products-copy li:last-child{margin-bottom:0}
+.labels-photo-stack{display:flex;flex-direction:column;gap:21px}
+.labels-photo-frame{border:5px solid var(--line);background:#fff;overflow:hidden}
+.labels-photo-frame img{display:block;width:100%;height:100%;object-fit:cover}
+.labels-photo-stack .labels-photo-frame:first-child{height:447px}
+.labels-photo-stack .labels-photo-frame:last-child{height:447px}
+.labels-panel-why{margin-top:23px;padding:180px 57px 54px;min-height:932px}
+.labels-panel-why .labels-panel-title{min-width:1013px}
+.labels-why-copy{max-width:1295px;margin:0 auto;font-family:"Londrina Solid",cursive;font-weight:300;font-size:clamp(1.5rem, 2vw, 2.5rem);line-height:1.2;color:#fff}
+.labels-why-copy p{margin:0 0 24px}
+.labels-why-copy ol{margin:0;padding-left:38px}
+.labels-why-copy li{margin-bottom:14px}
+.labels-why-copy li:last-child{margin-bottom:0}
+.heroes-page{position:relative;overflow:hidden;background:#c44eb4}
+.heroes-page::before{content:"";position:absolute;inset:0;background:url("https://www.figma.com/api/mcp/asset/b4f9cbed-9893-496f-b785-50d3cc8f007f") center top/cover no-repeat;opacity:.2;pointer-events:none}
+.heroes-inner{position:relative;max-width:1440px;margin:0 auto;padding:120px 15px 50px}
+.heroes-intro{margin:0 0 42px;text-align:center}
+.heroes-intro h1{margin:0 auto;max-width:1100px;font-family:"Londrina Solid",cursive;font-size:clamp(3.2rem, 5.6vw, 6rem);line-height:1.08;text-transform:uppercase;color:#fff}
+.heroes-grid{display:grid;grid-template-columns:repeat(2, minmax(0, 1fr));gap:22px 22px}
+.hero-card{position:relative;min-height:373px;border:5px solid var(--line);overflow:hidden}
+.hero-card::before{content:"";position:absolute;inset:0;background:url("https://www.figma.com/api/mcp/asset/b4f9cbed-9893-496f-b785-50d3cc8f007f") center/cover no-repeat;opacity:.2;pointer-events:none}
+.hero-card h2{position:relative;z-index:2;margin:18px 0 0 18px;max-width:58%;font-family:"Londrina Solid",cursive;font-size:clamp(3.2rem, 4.7vw, 8rem);line-height:.92;text-transform:uppercase;color:#000}
+.hero-card img{position:absolute;right:0;bottom:0;z-index:1;max-width:none}
+.hero-card-red{background:#e93a3a}
+.hero-card-blue{background:#5e92ed}
+.hero-card-yellow{background:#ffe449}
+.hero-card-lime{background:#87bb47}
+.hero-card-orange{background:#f69618}
+.hero-card-teal{background:#22bf9d}
+.hero-card-green{background:#0a9d12}
+.hero-card-violet{background:#4222bf}
+.hero-card-cyan{background:#248da8}
+.hero-card-red img{width:413px;height:auto;right:-25px;bottom:-5px}
+.hero-card-blue img{width:357px;height:auto;right:-18px;bottom:-5px}
+.hero-card-yellow img{width:425px;height:auto;right:-8px;bottom:-8px}
+.hero-card-lime img{width:382px;height:auto;right:-24px;bottom:-4px}
+.hero-card-orange img{width:361px;height:auto;right:-1px;bottom:-10px}
+.hero-card-teal img{width:303px;height:auto;right:-2px;bottom:-5px}
+.hero-card-green img{width:286px;height:auto;right:28px;bottom:-2px}
+.hero-card-violet img{width:243px;height:auto;right:-2px;bottom:-5px}
+.hero-card-wide{grid-column:1 / -1;min-height:373px}
+.hero-card-wide h2{max-width:44%}
+.hero-card-wide img{width:373px;height:auto;right:330px;bottom:-5px}
+.footer{margin-top:28px;border-top:4px solid var(--line);background:#fff}
+.footer-inner{max-width:var(--max-width);margin:0 auto;padding:20px;display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
+.button{display:inline-block;border:3px solid var(--line);background:var(--yellow);padding:12px 16px;font-family:"Londrina Solid",cursive;font-size:1.25rem;text-transform:uppercase}
+.muted{color:#444}
+@media (max-width:980px){
+  .nav-toggle{display:block}
+  .nav-links{display:none;width:100%;flex-direction:column}
+  .nav-links.open{display:flex}
+  .nav{flex-wrap:wrap}
+  .hero-copy,.content-grid{grid-template-columns:1fr}
+  .hero-art{justify-self:start;max-height:250px}
+  .grid{flex-direction:column}
+  .over-ons,.keurmerken,.spelregels,.kwartet,.kanjers,.placeholder-red,.placeholder-cyan{flex-basis:auto;width:100%}
+  .panel{min-height:250px}
+  .kanjers{min-height:420px;aspect-ratio:auto}
+  .placeholder-red,.placeholder-cyan{min-height:420px;aspect-ratio:auto}
+  .about-inner{padding:20px 12px 40px}
+  .about-page-tag{right:12px;top:10px;min-width:180px;height:64px;font-size:1.8rem}
+  .about-portraits{padding:96px 0 0;gap:18px}
+  .about-person{width:31%}
+  .about-person img{width:100%;height:auto;aspect-ratio:1 / 1}
+  .about-person-name{width:78%;height:60px;margin-top:-30px;font-size:1.8rem}
+  .about-panel{margin-top:82px;padding:124px 20px 32px}
+  .about-panel-goal,.about-panel-how{padding-top:138px}
+  .about-panel-title{top:34px;min-width:0 !important;width:calc(100% - 36px);padding:12px 16px;font-size:clamp(2rem, 5vw, 3.4rem);white-space:normal}
+  .about-panel p,.about-panel-body{font-size:clamp(1.15rem, 2.8vw, 1.55rem)}
+  .about-panel-body ul{padding-left:24px}
+  .labels-inner{padding:28px 10px 40px}
+  .labels-logo-row{gap:18px;margin:16px 0 44px}
+  .labels-arrow{width:48px;height:auto}
+  .labels-logo{width:min(280px, 60vw)}
+  .labels-panel-title{top:24px;min-width:0 !important;width:calc(100% - 32px);padding:10px 14px;font-size:clamp(2rem, 5vw, 3.4rem);white-space:normal;text-align:center}
+  .labels-panel-intro{padding:120px 18px 26px;min-height:0}
+  .labels-panel-intro p{font-size:clamp(1.15rem, 2.8vw, 1.55rem)}
+  .labels-products-layout{grid-template-columns:1fr;gap:18px}
+  .labels-panel-products{padding:120px 18px 28px;min-height:0}
+  .labels-products-copy,.labels-why-copy{font-size:clamp(1.1rem, 2.8vw, 1.5rem)}
+  .labels-photo-stack .labels-photo-frame:first-child,.labels-photo-stack .labels-photo-frame:last-child{height:auto}
+  .labels-panel-why{margin-top:18px;padding:120px 18px 30px;min-height:0}
+  .labels-why-copy ol,.labels-products-copy ol{padding-left:24px}
+  .heroes-inner{padding:90px 12px 34px}
+  .heroes-intro{margin-bottom:26px}
+  .heroes-grid{gap:16px}
+  .hero-card{min-height:250px}
+  .hero-card h2{margin:14px 0 0 14px;max-width:56%;font-size:clamp(2.4rem, 6vw, 4.8rem)}
+  .hero-card-red img,.hero-card-blue img,.hero-card-yellow img,.hero-card-lime img,.hero-card-orange img,.hero-card-teal img,.hero-card-green img,.hero-card-violet img{width:45%;right:-6px}
+  .hero-card-green img{right:18px}
+  .hero-card-wide img{width:31%;right:22%}
+  .help-copy{width:60%;padding:16px 14px 16px}
+  .help-copy h2{font-size:clamp(3rem, 7vw, 4.4rem)}
+  .help-copy p{font-size:clamp(1.4rem, 3.2vw, 2rem)}
+  .kanjers-copy{width:64%;padding:16px 14px 8px}
+  .continued-badge{width:min(88%, 420px)}
+  .character-grid{grid-template-columns:1fr}
+}
+@media (max-width:640px){
+  .hero-inner{padding:20px 10px 0}
+  .hero-characters{width:calc(100% + 80px);margin-left:-40px}
+  .hero-copy{padding:40px 10px 30px}
+  .section{padding:28px 10px}
+  .panel .art{width:48%}
+  .about-portraits{flex-wrap:wrap;justify-content:center;gap:16px}
+  .about-person{width:min(170px, calc(50% - 8px))}
+  .about-page-tag{min-width:148px;height:54px;font-size:1.45rem}
+  .about-panel{padding:92px 14px 24px}
+  .about-panel-goal,.about-panel-how{padding-top:108px}
+  .about-panel p,.about-panel-body{font-size:1rem;line-height:1.28}
+  .about-panel-body ul{padding-left:20px;margin-bottom:18px}
+  .labels-logo-row{gap:10px}
+  .labels-arrow{width:36px}
+  .labels-panel-intro,.labels-panel-products,.labels-panel-why{padding-left:12px;padding-right:12px}
+  .labels-products-copy,.labels-why-copy,.labels-panel-intro p{font-size:1rem;line-height:1.26}
+  .labels-products-copy ol,.labels-why-copy ol{padding-left:20px}
+  .heroes-inner{padding:70px 6px 24px}
+  .heroes-intro h1{font-size:clamp(2.1rem, 10vw, 3.6rem)}
+  .heroes-grid{grid-template-columns:1fr;gap:10px}
+  .hero-card,.hero-card-wide{min-height:220px;grid-column:auto}
+  .hero-card h2,.hero-card-wide h2{max-width:60%;font-size:clamp(2.4rem, 10vw, 3.8rem)}
+  .hero-card-red img,.hero-card-blue img,.hero-card-yellow img,.hero-card-lime img,.hero-card-orange img,.hero-card-teal img,.hero-card-green img,.hero-card-violet img,.hero-card-wide img{width:46%;right:-8px}
+  .hero-card-yellow img{width:54%}
+  .hero-card-wide img{right:4px}
+  .help-copy{width:62%;padding:14px 12px 14px}
+  .help-copy h2{font-size:clamp(2.6rem, 10vw, 3.6rem);margin-bottom:12px}
+  .help-copy p{font-size:clamp(1.1rem, 4.6vw, 1.5rem)}
+  .kanjers-copy{width:66%;padding:14px 12px 6px}
+  .kanjers-copy h2{font-size:clamp(2.5rem, 10vw, 3.3rem)}
+  .kanjers-copy p{font-size:clamp(1.05rem, 4vw, 1.3rem)}
+  .continued-badge{bottom:-22px;width:min(92%, 380px)}
+  .spelregels .art{width:52%}
+}
